@@ -4,8 +4,7 @@
       <feDropShadow dx="0" dy="2" stdDeviation="4" flood-opacity="0.1"/>
     </filter>
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&amp;display=swap');
-      .mono { font-family: 'JetBrains Mono', 'Fira Code', 'Roboto Mono', 'Courier New', monospace; }
+      .mono { font-family: ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace; }
     </style>
   </defs>
 
