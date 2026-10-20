@@ -221,7 +221,7 @@ for k, p in enumerate(data["projects"][:2]):
     desc = textwrap.wrap(p.get("description") or "", 54)[:2] or ['']
     stars_text = f'{p["stars"]:,}' if isinstance(p.get("stars"), int) else "—"
     forks_text = f'{p["forks"]:,}' if isinstance(p.get("forks"), int) else "—"
-    pj = (f'<a href="{esc(p["url"])}" target="_blank"><g class="fade proj" style="animation-delay:{2.2+k*.15:.2f}s">'
+    pj = (f'<a href="{esc(p["url"])}" target="_top" style="cursor:pointer"><g class="fade proj" style="animation-delay:{2.2+k*.15:.2f}s">'
           f'<rect class="pc" x="{x}" y="{y}" width="{w}" height="{h}" rx="10" fill="#0d1117" stroke="#30363d"/>'
           f'<rect x="{x}" y="{y}" width="{w}" height="2" rx="1" fill="{p["color"]}" opacity=".8"/>'
           f'<g transform="translate({x+18} {y+16}) scale(.95)" fill="#8b949e"><path d="{BADGE}"/></g>'
