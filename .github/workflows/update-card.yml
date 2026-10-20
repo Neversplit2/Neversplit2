@@ -15,7 +15,7 @@ jobs:
           python-version: "3.12"
       - run: python profile_card_kit/fetch_data.py
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.METRICS_PAT }}
       - run: python profile_card_kit/build_card.py
       - run: |
           git config user.name "github-actions[bot]"
