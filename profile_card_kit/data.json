@@ -1,0 +1,69 @@
+{
+ "updated": "2026-10-20T11:27:33.233363+00:00",
+ "login": "Neversplit2",
+ "api_status": "partial",
+ "stats": {
+  "repos": 2,
+  "stars": 0,
+  "commits": null,
+  "followers": 1
+ },
+ "total": null,
+ "calendar_start": null,
+ "weeks": [],
+ "languages": [
+  {
+   "name": "Jupyter Notebook",
+   "color": "#DA5B0B",
+   "pct": 82.9
+  },
+  {
+   "name": "Python",
+   "color": "#3572A5",
+   "pct": 11.1
+  },
+  {
+   "name": "JavaScript",
+   "color": "#f1e05a",
+   "pct": 4.1
+  },
+  {
+   "name": "CSS",
+   "color": "#563d7c",
+   "pct": 1.8
+  },
+  {
+   "name": "Shell",
+   "color": "#89e051",
+   "pct": 0.1
+  },
+  {
+   "name": "Other",
+   "color": "#8b949e",
+   "pct": 0.0
+  }
+ ],
+ "projects": [
+  {
+   "name": "grace_project",
+   "description": "",
+   "language": "Jupyter Notebook",
+   "color": "#DA5B0B",
+   "stars": 0,
+   "forks": 1,
+   "url": "https://github.com/Neversplit2/grace_project",
+   "tags": []
+  },
+  {
+   "name": "LASCA",
+   "description": "Repository data unavailable",
+   "language": "",
+   "color": "#8b949e",
+   "stars": null,
+   "forks": null,
+   "url": "https://github.com/LASCA/LASCA",
+   "tags": []
+  }
+ ],
+ "commits": []
+}

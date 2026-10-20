@@ -1,0 +1,56 @@
+.mono{font-family:ui-monospace,SFMono-Regular,Consolas,'Liberation Mono',Menlo,monospace}
+.sans{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif}
+.lbl{font-weight:600;fill:#7d8590}
+.val{fill:#e6edf3;font-weight:500}
+.dim{fill:#6e7681;font-weight:400}
+.accent{fill:#58a6ff;font-weight:600}
+.repo-badge rect{fill:#161b22;stroke:#30363d;stroke-width:1.2;transition:all .2s ease}
+.repo-badge path{fill:#8b949e;transition:fill .2s ease}
+a:hover .repo-badge rect{fill:#0c2d6b;stroke:#58a6ff}
+a:hover .repo-badge path{fill:#58a6ff}
+.pdf-badge rect{fill:#2a1218;stroke:#8e2a45;stroke-width:1.2;transition:all .2s ease}
+.pdf-badge path{fill:none;stroke:#ff6b81;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
+a:hover .pdf-badge rect{fill:#4a1625;stroke:#ff6b81}
+.pc{transition:stroke .2s ease,fill .2s ease}
+a:hover .pc{stroke:#58a6ff;fill:#111826}
+.tile rect:first-child{transition:stroke .2s ease}
+.tile:hover rect:first-child{stroke:#58a6ff}
+
+.card{animation:cardIn .8s cubic-bezier(.2,.7,.2,1) both}
+.fade{animation:fadeIn .6s ease both}
+.wk{animation:wkIn .5s ease both}
+.seg{transform-box:fill-box;transform-origin:left center;animation:grow .9s cubic-bezier(.2,.7,.2,1) both}
+.avatar{animation:float 5s ease-in-out infinite}
+.plate1{animation:plateA 6s ease-in-out infinite}
+.plate2{animation:plateB 7s ease-in-out infinite}
+.gfloat{animation:float 6s ease-in-out infinite}
+.live{animation:pulse 1.8s ease-in-out infinite}
+.bracket{animation:pulse 2.6s ease-in-out infinite}
+.drift{animation:drift 5s ease-in infinite;opacity:0}
+.rise-m{animation:riseM 4s ease-in infinite;opacity:0}
+.sweep{stroke-dasharray:36 800;animation:dash 4.5s linear infinite}
+.hstack{transform-box:fill-box;transform-origin:center;animation:sway 8s ease-in-out infinite}
+.gA{animation:ghostA 8s ease-in-out infinite}
+.gB{animation:ghostB 8s ease-in-out infinite}
+.scanl{animation:scan .45s linear infinite}
+.band{animation:bandMove 4.8s linear infinite}
+.hflick{animation:flick 7s steps(1) infinite}
+
+@keyframes cardIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes wkIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes plateA{0%,100%{transform:translate(0,0)}50%{transform:translate(2px,2px)}}
+@keyframes plateB{0%,100%{transform:translate(0,0)}50%{transform:translate(3px,3px)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+@keyframes drift{0%{transform:translateY(0);opacity:0}25%{opacity:.8}100%{transform:translateY(-34px);opacity:0}}
+@keyframes riseM{0%{transform:translateY(0);opacity:0}30%{opacity:.9}100%{transform:translateY(-60px);opacity:0}}
+@keyframes dash{from{stroke-dashoffset:0}to{stroke-dashoffset:-840}}
+@keyframes sway{0%,100%{transform:scale(1.1,1.08) skewY(0)}25%{transform:scale(1.02,1.08) skewY(-1.4deg)}75%{transform:scale(1.02,1.08) skewY(1.4deg)}}
+@keyframes ghostA{0%,100%{transform:translateX(0)}25%{transform:translateX(5px)}75%{transform:translateX(-5px)}}
+@keyframes ghostB{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+@keyframes scan{from{transform:translateY(0)}to{transform:translateY(3px)}}
+@keyframes bandMove{0%{transform:translateY(-30px)}100%{transform:translateY(215px)}}
+@keyframes flick{0%,90%,94%,100%{opacity:1}91%{opacity:.82}92%{opacity:1}93%{opacity:.9}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
