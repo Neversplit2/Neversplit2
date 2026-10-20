@@ -230,7 +230,7 @@ def relative_time(timestamp):
     return "just now"
 
 
-def get_recent_commits():
+def get_recent_commits(repositories):
     events = api_call(f"{API_ROOT}/users/{LOGIN}/events/public?per_page=100")
     if not isinstance(events, list):
         raise GitHubAPIError("GitHub returned an invalid public-events list")
@@ -261,7 +261,57 @@ def get_recent_commits():
             )
             if len(commits) == 5:
                 return commits
-    return commits
+    if commits:
+        return commits
+
+    repository_names = {
+        repo["full_name"]
+        for repo in repositories
+        if isinstance(repo.get("full_name"), str) and repo["full_name"]
+    }
+    repository_names.update(
+        full_name
+        for full_name in CONFIG.get("projects", [])
+        if isinstance(full_name, str) and full_name
+    )
+    dated_commits = []
+    for full_name in sorted(repository_names):
+        encoded_name = urllib.parse.quote(full_name, safe="/")
+        payload = api_call(
+            f"{API_ROOT}/repos/{encoded_name}/commits"
+            f"?author={urllib.parse.quote(LOGIN)}&per_page=5"
+        )
+        if not isinstance(payload, list):
+            raise GitHubAPIError(
+                f"GitHub returned an invalid commit list for {full_name}"
+            )
+        for item in payload:
+            if not isinstance(item, dict):
+                continue
+            commit = item.get("commit")
+            if not isinstance(commit, dict):
+                continue
+            message = commit.get("message", "").splitlines()
+            author = commit.get("author")
+            timestamp = author.get("date") if isinstance(author, dict) else None
+            if not message or not timestamp:
+                continue
+            committed_at = datetime.datetime.fromisoformat(
+                timestamp.replace("Z", "+00:00")
+            ).astimezone(datetime.timezone.utc)
+            dated_commits.append(
+                (
+                    committed_at,
+                    {
+                        "msg": message[0],
+                        "repo": full_name.rsplit("/", 1)[-1],
+                        "when": relative_time(timestamp),
+                    },
+                )
+            )
+
+    dated_commits.sort(key=lambda item: item[0], reverse=True)
+    return [commit for _, commit in dated_commits[:5]]
 
 
 def empty_data():
@@ -367,7 +417,7 @@ def fetch_data():
             )
 
     try:
-        data["commits"] = get_recent_commits()
+        data["commits"] = get_recent_commits(repositories)
         successful_requests += 1
     except (GitHubAPIError, KeyError, TypeError, ValueError) as error:
         report_api_error("Recent commits", error)

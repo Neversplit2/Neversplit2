@@ -406,6 +406,8 @@ svg = f'''<svg width="850" height="{H}" viewBox="0 0 850 {H}" xmlns="http://www.
 ]]></script>
 </svg>
 '''
-with open(P("profile-card.svg"), "w", encoding="utf-8") as output_file:
-    output_file.write(svg)
+output_paths = (P("profile-card.svg"), os.path.join(os.path.dirname(HERE), "profile-card.svg"))
+for output_path in output_paths:
+    with open(output_path, "w", encoding="utf-8") as output_file:
+        output_file.write(svg)
 print("built", len(svg), "bytes, height", H, data.get("api_status", "unavailable"))
