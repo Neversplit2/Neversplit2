@@ -1,3 +1,5 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/Neversplit2/Neversplit2/main/profile-card.svg" alt="System Info Card" width="100%">
+  <a href="https://github.com/Neversplit2">
+    <img src="./profile-card.svg?v=100" alt="Neversplit2 Profile Dashboard" width="100%">
+  </a>
 </div>
